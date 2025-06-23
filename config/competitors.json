@@ -1,0 +1,62 @@
+{
+  "BridleandReins": {
+    "baseUrl": "https://www.bridlesandreins.com",
+    "selector": {
+      "productWrapper": ".t4s-product-wrapper",
+      "name": ".t4s-product-title a",
+      "price": ".t4s-product-price",
+      "oldPrice": ".t4s-product-price del",
+      "newPrice": ".t4s-product-price ins",
+      "url": ".t4s-product-title a",
+      "reviews": ".jdgm-prev-badge"
+    },
+    "products": {
+      "bridles": "/collections/bridles",
+      "browbands": "/collections/browbands",
+      "best_sellers": "/collections/best-sellers",
+      "dog_collars_leashes": "/collections/dog-leads-collars",
+      "clearance": "/collections/clearance",
+      "breastplates": "/collections/breastplates",
+      "reins": "/collections/reins",
+      "nosebands": "/collections/nosebands",
+      "girths": "/collections/girths",
+      "new_arrivals": "/collections/new-releases",
+      "crownpieces": "/collections/crownpiece",
+      "halters": "/collections/exionpro-halters",
+      "accessories": "/collections/horse-accessories",
+      "martingales": "/collections/martingales",
+      "padding_for_girths": "/collections/sheepskins",
+      "leather_belts": "/collections/leather-belts",
+      "cheek_pieces": "/collections/cheek-pieces",
+      "horse_leads": "/collections/horse-leads",
+      "dog_toys": "/collections/dog-toys",
+      "boots": "/collections/boots",
+      "stirrup_leathers": "/collections/stirrups"
+    }
+  },
+  "TackWholesales": {
+    "baseUrl": "https://www.tackwholesale.com",
+    "selector": {
+      "productWrapper": ".card__content",
+      "name": ".card__heading a",
+      "price": ".price__regular .price-item--regular",
+      "oldPrice": ".price__sale s",
+      "newPrice": ".price__sale .price-item--sale",
+      "url": ".card__heading a"
+    },
+    "products": {
+      "bridles": "/collections/english-bridles-reins-parts",
+      "leather_halters": "/collections/leather-halters",
+      "nylon_halters": "/collections/horse-nylon-halters",
+      "bronc-halters": "/collections/bronc-halters",
+      "stirrup_leathers": "/collections/stirrup-leathers-irons-girths",
+      "girth": "/collections/english-girths",
+      "saddle_pads": "/collections/english-saddle-pads",
+      "spurs": "/collections/english-spurs",
+      "headstalls": "/collections/headstalls-reins",
+      "western_stirrups": "/collections/western-stirrups",
+      "breast_collars": "/collections/breast-collars",
+      "cinches": "/collections/cinches"
+    }
+  }
+}
