@@ -30,18 +30,8 @@
   iframeContainer.style.overflow = 'hidden';
   iframeContainer.style.backgroundColor = '#fff';
   iframeContainer.style.transform = 'scale(0)';
+  iframeContainer.style.transformOrigin = 'bottom right';
   iframeContainer.style.transition = 'transform 0.3s ease';
-
-  // Create Close Button
-  const closeButton = document.createElement('div');
-  closeButton.innerHTML = '&times;';
-  closeButton.style.position = 'absolute';
-  closeButton.style.top = '10px';
-  closeButton.style.right = '15px';
-  closeButton.style.fontSize = '24px';
-  closeButton.style.cursor = 'pointer';
-  closeButton.style.zIndex = '10000';
-  closeButton.style.color = '#333';
 
   // Create iframe
   const iframe = document.createElement('iframe');
@@ -52,26 +42,19 @@
   iframe.allow = 'camera; microphone; clipboard-write';
 
   // Append elements
-  iframeContainer.appendChild(closeButton);
   iframeContainer.appendChild(iframe);
   document.body.appendChild(chatButton);
   document.body.appendChild(iframeContainer);
 
-  // Show iframe on button click
-  chatButton.addEventListener('click', () => {
-    iframeContainer.style.transform = 'scale(1)';
-    chatButton.style.opacity = '0';
-    setTimeout(() => {
-      chatButton.style.display = 'none';
-    }, 300);
-  });
+  let isOpen = false;
 
-  // Hide iframe on close click
-  closeButton.addEventListener('click', () => {
-    iframeContainer.style.transform = 'scale(0)';
-    setTimeout(() => {
-      chatButton.style.display = 'block';
-      chatButton.style.opacity = '1';
-    }, 300);
+  chatButton.addEventListener('click', () => {
+    if (isOpen) {
+      iframeContainer.style.transform = 'scale(0)';
+      isOpen = false;
+    } else {
+      iframeContainer.style.transform = 'scale(1)';
+      isOpen = true;
+    }
   });
 })();
