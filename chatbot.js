@@ -1,5 +1,17 @@
 (function () {
-  // Create Chat Button
+  // Step 1: Get iframe URL from the script tag’s `src`
+  function getIframeUrl() {
+    const currentScript = document.currentScript || (function () {
+      const scripts = document.getElementsByTagName('script');
+      return scripts[scripts.length - 1];
+    })();
+    const urlParams = new URL(currentScript.src).searchParams;
+    return urlParams.get('url') || 'https://default.com';
+  }
+
+  const iframeURL = getIframeUrl();
+
+  // Step 2: Create chat button
   const chatButton = document.createElement('div');
   chatButton.innerHTML = '💬 Chat';
   chatButton.style.position = 'fixed';
@@ -14,9 +26,8 @@
   chatButton.style.zIndex = '9998';
   chatButton.style.fontFamily = 'Arial, sans-serif';
   chatButton.style.fontSize = '16px';
-  chatButton.style.transition = 'opacity 0.3s ease';
 
-  // Create iframe container
+  // Step 3: Create iframe container
   const iframeContainer = document.createElement('div');
   iframeContainer.style.position = 'fixed';
   iframeContainer.style.bottom = '80px';
@@ -33,28 +44,23 @@
   iframeContainer.style.transformOrigin = 'bottom right';
   iframeContainer.style.transition = 'transform 0.3s ease';
 
-  // Create iframe
+  // Step 4: Create iframe
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://plugins-ui-qa-in.smsinfini.com/send_lead?plugin=zoho&action_service=SMS&org=3600268000000181661&user=3600268000000906003&lead_id=3600268000023319207&module_type=Leads&is_admin=true';
+  iframe.src = iframeURL;
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
   iframe.allow = 'camera; microphone; clipboard-write';
 
-  // Append elements
+  // Step 5: Append elements
   iframeContainer.appendChild(iframe);
   document.body.appendChild(chatButton);
   document.body.appendChild(iframeContainer);
 
+  // Step 6: Toggle iframe on button click
   let isOpen = false;
-
   chatButton.addEventListener('click', () => {
-    if (isOpen) {
-      iframeContainer.style.transform = 'scale(0)';
-      isOpen = false;
-    } else {
-      iframeContainer.style.transform = 'scale(1)';
-      isOpen = true;
-    }
+    iframeContainer.style.transform = isOpen ? 'scale(0)' : 'scale(1)';
+    isOpen = !isOpen;
   });
 })();
